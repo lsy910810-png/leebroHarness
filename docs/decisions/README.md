@@ -13,17 +13,16 @@ For decisions that are stable and unsurprising, leave them only in `decisions.md
 
 ## Existing ADRs
 
-v0.2.0 baseline 7 결정 중 **rich context 있는 3개**를 backfill:
-
 | # | Title | 메모리 항목 |
 |---|---|---|
 | [ADR-0001](0001-progressive-disclosure.md) | Adopt Progressive Disclosure for Agent Knowledge | `decisions.md` #2 |
 | [ADR-0002](0002-visibility-protocol-3-tier.md) | Adopt 3-Tier Visibility Protocol for Operating Principles | `decisions.md` #3 |
 | [ADR-0003](0003-adopt-openai-harness-patterns.md) | Selectively Adopt OpenAI Harness Engineering Patterns | `decisions.md` #7 |
+| [ADR-0004](0004-adopt-github-public-marketplace.md) | Promote Local Marketplace to Public GitHub Repo (MIT-licensed) | `decisions.md` #8 |
 
-나머지 4개 결정(#1 Hybrid 구조, #4 Computational sensors next-ts, #5 Sync 자동화 보류, #6 Architecture guide opt-in)은 **2~3줄로 충분히 표현됨** — backfill 안 함, [memory/decisions.md](../../memory/decisions.md)에서만 관리.
+backfill 안 한 결정 (thin/자명, 2~3줄로 충분): #1 Hybrid 구조, #4 Computational sensors next-ts, #5 Sync 자동화 보류, #6 Architecture guide opt-in. [memory/decisions.md](../../memory/decisions.md)에서만 관리.
 
-새 reversal 또는 rich context decisions이 나오면 다음 번호(0004부터)로 추가.
+새 reversal 또는 rich context decisions은 다음 번호(0005부터)로 추가.
 
 ## Numbering
 
