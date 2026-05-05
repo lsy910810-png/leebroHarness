@@ -4,8 +4,12 @@
 
 ### 1. Marketplace 등록
 
-Claude Code 세션에서:
+Claude Code 세션에서 — GitHub URL (다른 PC에서도 동일하게):
+```
+/plugin marketplace add https://github.com/lsy910810-png/leebroHarness
+```
 
+또는 이 PC의 로컬 경로:
 ```
 /plugin marketplace add C:/Users/august/Desktop/Harness Engineering
 ```

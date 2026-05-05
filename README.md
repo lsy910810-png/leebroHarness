@@ -19,6 +19,12 @@
 
 ### 1. Marketplace 등록 (한 번만)
 
+GitHub URL (어느 PC에서나):
+```
+/plugin marketplace add https://github.com/lsy910810-png/leebroHarness
+```
+
+또는 로컬 경로:
 ```
 /plugin marketplace add C:/Users/august/Desktop/Harness Engineering
 ```

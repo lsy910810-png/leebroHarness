@@ -1,6 +1,6 @@
 # Project: <name>
 
-Next.js + TypeScript. Harness Engineering scaffold(next-ts). 4원칙은 항상 적용됩니다.
+Next.js + TypeScript. [Harness Engineering](https://github.com/lsy910810-png/leebroHarness) scaffold(next-ts). 4원칙은 항상 적용됩니다. 전문 원칙은 [PRINCIPLES.md](https://github.com/lsy910810-png/leebroHarness/blob/main/PRINCIPLES.md).
 
 ## Where to start
 
