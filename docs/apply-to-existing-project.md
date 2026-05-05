@@ -21,7 +21,7 @@
 
 ```
 /plugin marketplace add https://github.com/lsy910810-png/leebroHarness
-/plugin install harness
+/plugin install harness@leebroharness
 ```
 
 확인:
@@ -184,7 +184,7 @@ See [Harness Engineering PRINCIPLES.md](https://github.com/lsy910810-png/leebroH
    - 안 되면 → settings.json `permissions.allow` 머지 빠짐
 
 4. **Plugin 작동**: `/review` 호출 시 code-reviewer agent 응답
-   - 안 되면 → `/plugin install harness` 안 됐을 수 있음, 다시 install
+   - 안 되면 → `/plugin install harness@leebroharness` 안 됐을 수 있음, 다시 install
 
 5. **(next-ts만) hooks 작동**: TS 파일 Edit 후 typecheck 실행되는지
    - 너무 느리거나 안 되면 → settings.json `hooks` 섹션 손대거나 제거
@@ -219,7 +219,7 @@ See [Harness Engineering PRINCIPLES.md](https://github.com/lsy910810-png/leebroH
 # 1. Plugin (어디서든, 한 번만)
 # Claude Code CLI:
 /plugin marketplace add https://github.com/lsy910810-png/leebroHarness
-/plugin install harness
+/plugin install harness@leebroharness
 
 # 2. 프로젝트 상태 확인
 cd /path/to/existing-project

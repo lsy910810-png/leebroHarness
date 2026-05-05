@@ -32,8 +32,10 @@ GitHub URL (어느 PC에서나):
 ### 2. 플러그인 설치
 
 ```
-/plugin install harness
+/plugin install harness@leebroharness
 ```
+
+`@leebroharness`는 marketplace 이름 (marketplace.json의 top-level `name` 필드).
 
 설치 확인은 `/plugin`. agent 확인은 `/agents`.
 

@@ -19,8 +19,10 @@ Claude Code 세션에서 — GitHub URL (다른 PC에서도 동일하게):
 ### 2. 플러그인 설치 + enable
 
 ```
-/plugin install harness
+/plugin install harness@leebroharness
 ```
+
+`@leebroharness`는 marketplace 식별자 (`marketplace.json` 최상위 `name` 필드와 일치).
 
 ### 3. 확인
 
