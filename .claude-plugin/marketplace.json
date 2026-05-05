@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    {
+      "name": "harness",
+      "path": "./plugins/harness",
+      "description": "Reusable agents, commands, and hooks grounded in 4 core principles",
+      "version": "0.2.0"
+    }
+  ]
+}

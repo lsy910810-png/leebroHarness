@@ -1,0 +1,62 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(npm run dev)",
+      "Bash(npm run build)",
+      "Bash(npm run lint)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run test:*)",
+      "Bash(npm run format)",
+      "Bash(npm install:*)",
+      "Bash(pnpm:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx prettier:*)",
+      "Bash(npx next:*)",
+      "Read(./**)",
+      "Edit(./app/**)",
+      "Edit(./components/**)",
+      "Edit(./lib/**)",
+      "Edit(./src/**)",
+      "Edit(./public/**)",
+      "Edit(./tsconfig.json)",
+      "Edit(./next.config.*)",
+      "Edit(./package.json)"
+    ],
+    "deny": [
+      "Read(./.env*)",
+      "Read(./**/secrets/**)",
+      "Bash(rm -rf:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const fs=require('fs');const j=JSON.parse(fs.readFileSync(0,'utf8'));const f=j.tool_input.file_path;if(f&&/\\.(ts|tsx)$/.test(f)&&fs.existsSync('tsconfig.json')){const r=require('child_process').spawnSync('npx',['--yes','tsc','--noEmit','--pretty','false'],{encoding:'utf8'});if(r.status!==0){process.stderr.write('[typecheck] errors:\\n'+r.stdout+'\\n');process.exit(2)}}\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const fs=require('fs');const cp=require('child_process');let pkg={};try{pkg=JSON.parse(fs.readFileSync('package.json','utf8'))}catch(e){process.exit(0)}const scripts=pkg.scripts||{};if(scripts.lint){const r=cp.spawnSync('npm',['run','lint','--silent'],{encoding:'utf8',shell:true});if(r.status!==0){process.stderr.write('[stop] lint failed:\\n'+r.stdout+r.stderr);process.exit(2)}}if(scripts.test){const r=cp.spawnSync('npm',['test','--silent','--','--passWithNoTests'],{encoding:'utf8',shell:true});if(r.status!==0){process.stderr.write('[stop] tests failed:\\n'+r.stdout+r.stderr);process.exit(2)}}\""
+          }
+        ]
+      }
+    ]
+  }
+}

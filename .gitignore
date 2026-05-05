@@ -1,0 +1,18 @@
+# Claude Code per-user permissions cache (auto-generated, not for repo)
+.claude/settings.local.json
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Defensive (no source expected in harness, but in case)
+node_modules/
+dist/
+.next/
+*.log
