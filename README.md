@@ -62,5 +62,6 @@ cp "C:/Users/august/Desktop/Harness Engineering/scaffolds/general/CLAUDE.md" /pa
 ## 더 읽을거리
 
 - [docs/install.md](./docs/install.md) — 설치 단계 + 검증
+- [docs/apply-to-existing-project.md](./docs/apply-to-existing-project.md) — **이미 작업 중인 프로젝트에 머지하는 가이드** (4 case 분기)
 - [docs/extend.md](./docs/extend.md) — agent/command/skill 추가, progressive disclosure 패턴, 원칙 동기화
 - [docs/architecture-guide.md](./docs/architecture-guide.md) — Forward-only layers, Providers, repository-first context (opt-in)

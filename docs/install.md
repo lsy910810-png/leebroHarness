@@ -31,7 +31,7 @@ Claude Code 세션에서 — GitHub URL (다른 PC에서도 동일하게):
 
 ## Scaffold 적용
 
-신규 프로젝트 디렉토리에서:
+### 신규 프로젝트 (빈 폴더)
 
 ```bash
 # Next.js + TypeScript
@@ -44,6 +44,10 @@ cp "C:/Users/august/Desktop/Harness Engineering/scaffolds/general/CLAUDE.md" .
 ```
 
 복사 후 `CLAUDE.md`의 `<name>`, Project Meta 섹션 채우기.
+
+### 이미 작업 중인 프로젝트
+
+기존 `CLAUDE.md`나 `.claude/settings.json` 있으면 단순 cp는 위험(덮어쓰기). 4가지 case별 머지 가이드는 **[apply-to-existing-project.md](apply-to-existing-project.md)** 참조.
 
 ## Hook 동작 확인
 
