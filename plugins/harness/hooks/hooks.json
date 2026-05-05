@@ -1,23 +1,25 @@
 {
-  "PostToolUse": [
-    {
-      "matcher": "Edit|Write",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "node -e \"const j=JSON.parse(require('fs').readFileSync(0,'utf8'));const f=j.tool_input.file_path;if(f&&/\\.(ts|tsx|js|jsx|json|md)$/.test(f)){require('child_process').spawnSync('npx',['--yes','prettier','--write',f],{stdio:'inherit'})}\""
-        }
-      ]
-    }
-  ],
-  "Stop": [
-    {
-      "hooks": [
-        {
-          "type": "command",
-          "command": "node -e \"if(process.platform==='win32'){require('child_process').spawnSync('powershell',['-NoProfile','-Command','[console]::beep(800,200)'])}else{process.stdout.write('\\x07')}\""
-        }
-      ]
-    }
-  ]
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const j=JSON.parse(require('fs').readFileSync(0,'utf8'));const f=j.tool_input.file_path;if(f&&/\\.(ts|tsx|js|jsx|json|md)$/.test(f)){require('child_process').spawnSync('npx',['--yes','prettier','--write',f],{stdio:'inherit'})}\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"if(process.platform==='win32'){require('child_process').spawnSync('powershell',['-NoProfile','-Command','[console]::beep(800,200)'])}else{process.stdout.write('\\x07')}\""
+          }
+        ]
+      }
+    ]
+  }
 }
