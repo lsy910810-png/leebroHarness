@@ -66,6 +66,8 @@ cp "C:/Users/august/Desktop/Harness Engineering/scaffolds/general/CLAUDE.md" /pa
 
 - [docs/install.md](./docs/install.md) — 설치 단계 + 검증
 - [docs/apply-to-existing-project.md](./docs/apply-to-existing-project.md) — **이미 작업 중인 프로젝트에 머지하는 가이드** (4 case 분기)
+- [docs/troubleshooting.md](./docs/troubleshooting.md) — 실제 만난 install·운영 에러 + fix 모음
 - [docs/extend.md](./docs/extend.md) — agent/command/skill 추가, progressive disclosure 패턴, 원칙 동기화
 - [docs/architecture-guide.md](./docs/architecture-guide.md) — Forward-only layers, Providers, repository-first context (opt-in)
+- [CHANGELOG.md](./CHANGELOG.md) — 버전별 변경 사실 (v0.1.0~)
 - [.github/workflows/ci.yml](./.github/workflows/ci.yml) — invariant 자동 검증 (JSON·version·임베드 4곳·ADR 정합성)

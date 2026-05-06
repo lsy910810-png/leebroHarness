@@ -1,0 +1,17 @@
+# Claude Code per-user permissions cache (auto-generated, not for repo)
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Defensive (project-specific stack은 추가)
+node_modules/
+dist/
+*.log

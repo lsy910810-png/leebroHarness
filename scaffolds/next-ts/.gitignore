@@ -1,0 +1,28 @@
+# Claude Code per-user permissions cache (auto-generated, not for repo)
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node / Next.js
+node_modules/
+dist/
+build/
+.next/
+.turbo/
+out/
+*.log
+*.tsbuildinfo
+.eslintcache
+
+# Environment
+.env
+.env.local
+.env*.local
