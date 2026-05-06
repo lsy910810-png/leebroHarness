@@ -1,0 +1,99 @@
+name: harness invariants
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate JSON files
+        run: |
+          set -euo pipefail
+          for f in \
+            .claude-plugin/marketplace.json \
+            plugins/harness/.claude-plugin/plugin.json \
+            plugins/harness/hooks/hooks.json \
+            scaffolds/general/.claude/settings.json \
+            scaffolds/next-ts/.claude/settings.json \
+            scaffolds/turbo-monorepo/.claude/settings.json
+          do
+            if [ ! -f "$f" ]; then
+              echo "MISSING: $f"; exit 1
+            fi
+            cat "$f" | node -e "JSON.parse(require('fs').readFileSync(0,'utf8'))"
+            echo "✓ $f"
+          done
+
+      - name: Verify principle full-text in 4 files
+        run: |
+          set -euo pipefail
+          # PRINCIPLES.md + 3 agents (extend.md excluded — has grep pattern as documentation)
+          count=$(grep -rl 'Don.t .improve. adjacent code' . --include='*.md' --exclude=extend.md | wc -l)
+          if [ "$count" -ne 4 ]; then
+            echo "ERROR: full-text embed expected 4, got $count"
+            grep -rl 'Don.t .improve. adjacent code' . --include='*.md' --exclude=extend.md
+            exit 1
+          fi
+          echo "✓ Full text embed: 4"
+
+      - name: Verify version consistency
+        run: |
+          set -euo pipefail
+          mv=$(node -e "console.log(JSON.parse(require('fs').readFileSync('.claude-plugin/marketplace.json','utf8')).plugins[0].version)")
+          pv=$(node -e "console.log(JSON.parse(require('fs').readFileSync('plugins/harness/.claude-plugin/plugin.json','utf8')).version)")
+          if [ "$mv" != "$pv" ]; then
+            echo "ERROR: marketplace=$mv  plugin=$pv  mismatch"
+            exit 1
+          fi
+          echo "✓ Versions match: $mv"
+
+      - name: Verify scaffold CLAUDE.md exists for each scaffold
+        run: |
+          set -euo pipefail
+          for s in general next-ts turbo-monorepo; do
+            for f in "scaffolds/$s/CLAUDE.md" "scaffolds/$s/.claude/settings.json"; do
+              if [ ! -f "$f" ]; then
+                echo "MISSING: $f"; exit 1
+              fi
+              echo "✓ $f"
+            done
+          done
+
+      - name: Verify scaffold CLAUDE.md size hint (<= 80 lines)
+        run: |
+          set -euo pipefail
+          fail=0
+          for s in general next-ts turbo-monorepo; do
+            f="scaffolds/$s/CLAUDE.md"
+            lines=$(wc -l < "$f")
+            if [ "$lines" -gt 80 ]; then
+              echo "WARN: $f has $lines lines (target <= 80)"
+              fail=1
+            else
+              echo "✓ $f: $lines lines"
+            fi
+          done
+          # Warn-only — do not exit non-zero. (slim guideline, not strict invariant)
+          exit 0
+
+      - name: Verify ADR README references existing files
+        run: |
+          set -euo pipefail
+          adr_dir="docs/decisions"
+          for f in $(grep -oE '0[0-9]{3}-[a-z-]+\.md' "$adr_dir/README.md" | sort -u); do
+            if [ ! -f "$adr_dir/$f" ]; then
+              echo "ERROR: ADR README references missing file: $adr_dir/$f"
+              exit 1
+            fi
+            echo "✓ ADR exists: $f"
+          done

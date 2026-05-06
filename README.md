@@ -14,6 +14,7 @@
 - **Scaffolds** (`scaffolds/`) — 프로젝트마다 복사해서 시작.
   - `general/`: 언어 무관 안전 baseline
   - `next-ts/`: Next.js + TypeScript. 추가로 typecheck(PostToolUse)·lint+test(Stop) hook 포함
+  - `turbo-monorepo/`: Turbo + pnpm workspace 모노레포 (Next.js + Express + Prisma 흔한 조합). hooks는 보류(monorepo 무거움)
 
 ## 빠른 시작
 
@@ -67,3 +68,4 @@ cp "C:/Users/august/Desktop/Harness Engineering/scaffolds/general/CLAUDE.md" /pa
 - [docs/apply-to-existing-project.md](./docs/apply-to-existing-project.md) — **이미 작업 중인 프로젝트에 머지하는 가이드** (4 case 분기)
 - [docs/extend.md](./docs/extend.md) — agent/command/skill 추가, progressive disclosure 패턴, 원칙 동기화
 - [docs/architecture-guide.md](./docs/architecture-guide.md) — Forward-only layers, Providers, repository-first context (opt-in)
+- [.github/workflows/ci.yml](./.github/workflows/ci.yml) — invariant 자동 검증 (JSON·version·임베드 4곳·ADR 정합성)

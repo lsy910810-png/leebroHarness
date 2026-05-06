@@ -1,0 +1,51 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(git stash:*)",
+      "Bash(ls:*)",
+      "Read(./**)",
+      "Bash(pnpm:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm dev:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm format:*)",
+      "Bash(pnpm typecheck:*)",
+      "Bash(npx turbo:*)",
+      "Bash(turbo:*)",
+      "Bash(npx prisma:*)",
+      "Bash(pnpm db:*)",
+      "Bash(docker compose:*)",
+      "Bash(docker-compose:*)",
+      "Bash(node:*)",
+      "Bash(npx tsc:*)",
+      "Edit(./apps/**)",
+      "Edit(./packages/**)",
+      "Edit(./scripts/**)",
+      "Edit(./tsconfig.json)",
+      "Edit(./turbo.json)",
+      "Edit(./pnpm-workspace.yaml)",
+      "Edit(./package.json)",
+      "Edit(./.prettierrc)",
+      "Edit(./README.md)",
+      "Edit(./docs/**)"
+    ],
+    "deny": [
+      "Read(./.env*)",
+      "Read(./**/.env*)",
+      "Read(./**/secrets/**)",
+      "Bash(rm -rf:*)",
+      "Bash(pnpm db:reset:*)",
+      "Bash(npx prisma migrate reset:*)"
+    ]
+  }
+}

@@ -36,11 +36,15 @@ Claude Code 세션에서 — GitHub URL (다른 PC에서도 동일하게):
 ### 신규 프로젝트 (빈 폴더)
 
 ```bash
-# Next.js + TypeScript
+# Next.js + TypeScript (단일 앱)
 cp -r "C:/Users/august/Desktop/Harness Engineering/scaffolds/next-ts/.claude" .
 cp "C:/Users/august/Desktop/Harness Engineering/scaffolds/next-ts/CLAUDE.md" .
 
-# 범용
+# Turbo + pnpm 모노레포 (Next.js + Express + Prisma 등 multi-app)
+cp -r "C:/Users/august/Desktop/Harness Engineering/scaffolds/turbo-monorepo/.claude" .
+cp "C:/Users/august/Desktop/Harness Engineering/scaffolds/turbo-monorepo/CLAUDE.md" .
+
+# 범용 (언어 무관, hooks 없음)
 cp -r "C:/Users/august/Desktop/Harness Engineering/scaffolds/general/.claude" .
 cp "C:/Users/august/Desktop/Harness Engineering/scaffolds/general/CLAUDE.md" .
 ```
