@@ -10,6 +10,29 @@ Living document `~/.claude/projects/.../memory/decisions.md`는 reasoning 보존
 
 ---
 
+## [0.3.2] — 2026-05-08
+
+### Fixed
+- **principle-auditor KB lookup 100% 실패** — Symphony 4회 + mini_api 1회 audit 로그 mining 결과, 5/5 audit이 sibling KB 파일(`audit-checks.md`, `audit-output.md`)을 cwd-relative로 잘못 해석해 못 찾고 폴백함. Claude Code 1.0.x는 plugin root path env 변수 미제공 → 근본 해결 불가능. agent.md에 4 차원 임계값 + 응답 템플릿 인라인 임베드로 전환.
+
+### Changed
+- `plugins/harness/agents/principle-auditor.md` — 92 → 173줄. KB lookup 섹션 제거, 인라인 스캔 가이드 + 출력 형식 표준 추가.
+- ID 포맷 표준화: `D<dim>-<index>` (예: `D1-1`). 이전 5 audit이 매번 다른 vocabulary(`H1`/`D1-1`/`P1-A`/`D1-01`)를 사용해 비교 불가능했음.
+- Severity vocabulary 표준화: `blocker/major/minor/nit` 4단 고정. `HIGH/MEDIUM/LOW` 등 자유 vocabulary 금지.
+
+### Removed
+- `plugins/harness/agents/principle-auditor/audit-checks.md` (240줄, 한 번도 read된 적 없음)
+- `plugins/harness/agents/principle-auditor/audit-output.md` (90줄, 한 번도 read된 적 없음)
+- `plugins/harness/agents/principle-auditor/` 폴더
+
+### Added
+- `docs/decisions/0005-audit-mining-cycle-1.md` — mining 절차·발견·결정·검증 계획 ADR
+
+### Notes
+- ADR 0001 (Progressive Disclosure)는 principle-auditor 한정 부분적으로 supersede됨. code-reviewer / tester는 본 cycle에서 보존 — 다음 cycle에서 동일 mining 후 결정.
+
+---
+
 ## [0.3.1] — 2026-05-06
 
 ### Added

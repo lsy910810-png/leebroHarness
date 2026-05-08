@@ -19,10 +19,11 @@ For decisions that are stable and unsurprising, leave them only in `decisions.md
 | [ADR-0002](0002-visibility-protocol-3-tier.md) | Adopt 3-Tier Visibility Protocol for Operating Principles | `decisions.md` #3 |
 | [ADR-0003](0003-adopt-openai-harness-patterns.md) | Selectively Adopt OpenAI Harness Engineering Patterns | `decisions.md` #7 |
 | [ADR-0004](0004-adopt-github-public-marketplace.md) | Promote Local Marketplace to Public GitHub Repo (MIT-licensed) | `decisions.md` #8 |
+| [ADR-0005](0005-audit-mining-cycle-1.md) | Audit Log Mining Cycle 1 — KB Lookup 실패 + ID/Severity 표준화 | `decisions.md` #9 |
 
 backfill 안 한 결정 (thin/자명, 2~3줄로 충분): #1 Hybrid 구조, #4 Computational sensors next-ts, #5 Sync 자동화 보류, #6 Architecture guide opt-in. [memory/decisions.md](../../memory/decisions.md)에서만 관리.
 
-새 reversal 또는 rich context decisions은 다음 번호(0005부터)로 추가.
+새 reversal 또는 rich context decisions은 다음 번호(0006부터)로 추가.
 
 ## Numbering
 
